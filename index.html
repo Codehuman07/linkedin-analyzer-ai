@@ -7,19 +7,48 @@
     <link href="./home.css" rel="stylesheet">
 </head>
 <body>
-<div class="logsign">
-        <a href="./login.html" class="btn">Login</a>
-        <a href="./signup.html" class="btn">Sign Up</a>
-</div>
-    <div class="heading">
-        <h1>LinkedIn Profile Anal-yzer</h1>
+<div class="main">
+    <div class="logsign">
+            <a href="./login.html" class="btn">Login</a>
+            <a href="./signup.html" class="btn">Sign Up</a>
     </div>
-    <div class="content">
-        <div class="inputpart">
-            <input type="url" placeholder="Enter LinkedIn Profile URL" class="url-input">
-            <button class="analyzebutton">Generate Report</button>
+        <div class="heading">
+            <h1>LinkedIn Profile Anal-yzer</h1>
         </div>
-        
-    </div>
+        <div class="content">
+            <div class="inputpart">
+                <input type="url" placeholder="Enter LinkedIn Profile URL" class="url-input">
+                <button class="analyzebutton">Generate Report</button>
+            </div>
+        </div>
+        <div class="analysis-wrapper">   
+            <div class="scores-panel">
+                <h2>Overall Score</h2>
+                <div class="overall-score">78%</div>
+            </div>
+            <div class="profile-panel">
+                <h2>Profile</h2>
+                <div class="profile-card"></div>
+                <div class="profile-card"></div>
+                <div class="profile-card"></div>
+            </div>
+            <div class="individual-scores-panel">
+                <h2>Individual Scores</h2>
+                <div class="scores-grid">
+                    <div class="score-box">About</div>
+                    <div class="score-box">Desc</div>
+                    <div class="score-box">Act.</div>
+                    <div class="score-box">Exp</div>
+                    <div class="score-box">Skill</div>
+                    <div class="score-box">Edu</div>
+                </div>
+            </div>
+            <div class="suggestion-panel">
+                <h2>Suggestion & Improvements</h2>
+                <div class="suggestion-box"></div>
+            </div>
+            
+        </div>
+</div>
 </body>
 </html>

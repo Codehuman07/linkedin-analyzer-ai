@@ -1,18 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-body{
+
+body {
     background-color: #121212;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
 }
+
 body::before {
     content: "";
     position: absolute;
@@ -20,14 +22,14 @@ body::before {
 
     /* Animated LinkedIn graph pattern */
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(53,165,252,0.18) 0.8px, transparent 3px),
-        radial-gradient(circle at 80% 30%, rgba(53,165,252,0.14) 0.8px, transparent 3px),
-        radial-gradient(circle at 30% 70%, rgba(53,165,252,0.16) 0.8px, transparent 3px),
-        radial-gradient(circle at 60% 80%, rgba(53,165,252,0.12) 0.8px, transparent 3px),
-        radial-gradient(circle at 20% 40%, rgba(53,165,252,0.15) 0.8px, transparent 3px),
-        radial-gradient(circle at 70% 60%, rgba(53,165,252,0.13) 0.8px, transparent 3px),
-        linear-gradient(120deg, rgba(53,165,252,0.14) 2px, transparent 1px),
-        linear-gradient(300deg, rgba(53,165,252,0.14) 2px, transparent 1px);
+        radial-gradient(circle at 10% 20%, rgba(53, 165, 252, 0.18) 0.8px, transparent 3px),
+        radial-gradient(circle at 80% 30%, rgba(53, 165, 252, 0.14) 0.8px, transparent 3px),
+        radial-gradient(circle at 30% 70%, rgba(53, 165, 252, 0.16) 0.8px, transparent 3px),
+        radial-gradient(circle at 60% 80%, rgba(53, 165, 252, 0.12) 0.8px, transparent 3px),
+        radial-gradient(circle at 20% 40%, rgba(53, 165, 252, 0.15) 0.8px, transparent 3px),
+        radial-gradient(circle at 70% 60%, rgba(53, 165, 252, 0.13) 0.8px, transparent 3px),
+        linear-gradient(120deg, rgba(53, 165, 252, 0.14) 2px, transparent 1px),
+        linear-gradient(300deg, rgba(53, 165, 252, 0.14) 2px, transparent 1px);
 
     background-size: 80px 80px, 90px 90px, 70px 70px, 100px 100px, 60px 60px, 75px 75px, 30px 30px, 30px 30px;
     animation: networkMove 30s linear infinite;
@@ -38,11 +40,24 @@ body::before {
     from {
         background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
     }
+
     to {
         background-position: 400px 200px, -300px 150px, 200px -250px, -150px -300px, 120px 60px, -120px -60px;
     }
 }
-.logsign{
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Ensure absolute children position relative to this */
+}
+
+.logsign {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -52,7 +67,8 @@ body::before {
     gap: 20px;
     z-index: 2;
 }
-.btn{
+
+.btn {
     background-color: #00487e2b;
     border-radius: 15px;
     padding: 10px 30px;
@@ -61,10 +77,12 @@ body::before {
     text-decoration: none;
     transition: transform 0.5s ease;
 }
-.heading{
+
+.heading {
     margin-bottom: 20px;
 }
-.content{
+
+.content {
     background-color: rgb(46, 46, 46);
     padding: 30px;
     box-sizing: border-box;
@@ -72,13 +90,15 @@ body::before {
     border-radius: 15px;
     z-index: 2;
 }
-h1{
+
+h1 {
     color: #35a5fc;
     font-weight: bold;
     font-size: 70px;
     margin-bottom: 30px;
 }
-input{
+
+input {
     width: 500px;
     height: 26px;
     border-radius: 15px;
@@ -89,7 +109,8 @@ input{
     background-color: #121212;
     color: white;
 }
-.analyzebutton{
+
+.analyzebutton {
     width: 150px;
     height: 48px;
     border-radius: 15px;
@@ -100,18 +121,125 @@ input{
     cursor: pointer;
     transition: transform 0.5s ease;
 }
-button:hover{
+
+button:hover {
     transform: translateY(-6px);
     cursor: pointer;
 }
-button:active{
+
+button:active {
     opacity: 0.9;
     cursor: pointer;
 }
+
 .btn:hover {
     transform: translateY(-6px);
 }
 
 .btn:active {
     opacity: 0.9;
+}
+
+.analysis-wrapper {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 25px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    z-index: 3;
+}
+
+.scores-panel {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.profile-panel {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    /* Profile takes row 1 & 2 */
+}
+
+.individual-scores-panel {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.suggestion-panel {
+    grid-column: 1 / span 2;
+    grid-row: 3 / 4;
+}
+
+.scores-panel {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overall-score {
+    font-size: 48px;
+    font-weight: bold;
+    color: #35a5fc;
+    margin-top: 10px;
+}
+
+
+.scores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.score-box {
+    background: #121212;
+    border: 1px solid #35a5fc;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    color: white;
+}
+
+.profile-panel {
+    background: #2b1b1b;
+    padding: 20px;
+    border-radius: 15px;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span -3;
+}
+
+.individual-scores-panel {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+.profile-card {
+    background: #121212;
+    border: 1px solid #ff5a5a;
+    border-radius: 10px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.suggestion-panel {
+    grid-column: 1 / span 2;
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.suggestion-box {
+    height: 80px;
+    background: #121212;
+    border: 1px solid #35a5fc;
+    border-radius: 10px;
+    margin-top: 10px;
 }
