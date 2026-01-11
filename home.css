@@ -149,6 +149,7 @@ button:active {
     margin-top: 80px;
     margin-bottom: 50px;
     z-index: 3;
+    visibility: hidden;
 }
 
 .scores-panel {
